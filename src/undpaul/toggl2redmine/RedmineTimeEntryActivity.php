@@ -1,6 +1,6 @@
 <?php
 
-namespace derhasi\toggl2redmine;
+namespace undpaul\toggl2redmine;
 
 class RedmineTimeEntryActivity {
   /**

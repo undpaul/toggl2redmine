@@ -4,15 +4,15 @@
  * TimeEntryCollection.php for toggl2redmine
  */
 
-namespace derhasi\toggl2redmine;
+namespace undpaul\toggl2redmine;
 
 
-use derhasi\toggl2redmine\TimeEntry\TogglTimeEntry;
+use undpaul\toggl2redmine\TimeEntry\TogglTimeEntry;
 
 class TimeEntryCollection implements \Countable {
 
   /**
-   * @var \derhasi\toggl2redmine\TimeEntry[]
+   * @var \undpaul\toggl2redmine\TimeEntry[]
    */
   protected $entries = [];
 
@@ -23,14 +23,14 @@ class TimeEntryCollection implements \Countable {
   protected $sync = [];
 
   /**
-   * @var \derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry[]
+   * @var \undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry[]
    */
   protected $redmineEntries = [];
 
   /**
    * Get list of entries in this collection.
    *
-   * @return \derhasi\toggl2redmine\TimeEntry[]
+   * @return \undpaul\toggl2redmine\TimeEntry[]
    */
   public function getEntries() {
     return $this->entries;
@@ -38,7 +38,7 @@ class TimeEntryCollection implements \Countable {
 
   /**
    *
-   * @param \derhasi\toggl2redmine\TimeEntry\TogglTimeEntry $togglEntry
+   * @param \undpaul\toggl2redmine\TimeEntry\TogglTimeEntry $togglEntry
    */
   public function addTogglEntry(TogglTimeEntry $togglEntry) {
     $entry = new TimeEntry();
@@ -64,13 +64,13 @@ class TimeEntryCollection implements \Countable {
 
   /**
    * Provide redmine entries to associate with the given list of toggl entries.
-   * @param \derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry[] $redmineEntries
+   * @param \undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry[] $redmineEntries
    */
   public function processRedmineEntries(array $redmineEntries) {
     $this->redmineEntries = [];
     $combinations = [];
 
-    /** @var \derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry $redmineEntry */
+    /** @var \undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry $redmineEntry */
     foreach ($redmineEntries as $redmineEntry) {
       $this->redmineEntries[$redmineEntry->getID()] = $redmineEntry;
 
@@ -105,7 +105,7 @@ class TimeEntryCollection implements \Countable {
   /**
    * Provides list of redmine entries that have no associated toggl entry.
    *
-   * @return \derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry[]
+   * @return \undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry[]
    */
   public function getUnassociatedRedmineEntries() {
     $return = [];

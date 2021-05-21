@@ -1,8 +1,8 @@
 <?php
 
-namespace derhasi\toggl2redmine\TimeEntry;
+namespace undpaul\toggl2redmine\TimeEntry;
 
-use derhasi\toggl2redmine\RedmineTimeEntryActivity;
+use undpaul\toggl2redmine\RedmineTimeEntryActivity;
 
 class RedmineTimeEntry extends TimeEntryBase {
 
@@ -37,7 +37,7 @@ class RedmineTimeEntry extends TimeEntryBase {
   /**
    * Get time entry activity.
    *
-   * @return \derhasi\toggl2redmine\RedmineTimeEntryActivity
+   * @return \undpaul\toggl2redmine\RedmineTimeEntryActivity
    */
   public function getActivity() {
     return new RedmineTimeEntryActivity($this->raw['activity']);

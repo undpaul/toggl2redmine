@@ -25,11 +25,10 @@ if (!defined('TOGGL2REDMINE_COMPOSER_AUTOLOAD')) {
 
 require TOGGL2REDMINE_COMPOSER_AUTOLOAD;
 
-use \derhasi\toggl2redmine\Command\TimeEntrySync;
+use \undpaul\toggl2redmine\Command\TimeEntrySync;
 use \Symfony\Component\Console\Application;
 
 
 $application = new Application();
 $application->add(new TimeEntrySync());
 $application->run();
-
