@@ -2,7 +2,7 @@
 
 PHP CLI tool for syncing toggl with redmine.
 
-[![Latest Stable Version](https://poser.pugx.org/derhasi/toggl2redmine/v/stable.svg)](https://packagist.org/packages/derhasi/toggl2redmine) [![Total Downloads](https://poser.pugx.org/derhasi/toggl2redmine/downloads.svg)](https://packagist.org/packages/derhasi/toggl2redmine) [![Latest Unstable Version](https://poser.pugx.org/derhasi/toggl2redmine/v/unstable.svg)](https://packagist.org/packages/derhasi/toggl2redmine) [![License](https://poser.pugx.org/derhasi/toggl2redmine/license.svg)](https://packagist.org/packages/derhasi/toggl2redmine)
+[![Latest Stable Version](https://poser.pugx.org/undpaul/toggl2redmine/v/stable.svg)](https://packagist.org/packages/undpaul/toggl2redmine) [![Total Downloads](https://poser.pugx.org/undpaul/toggl2redmine/downloads.svg)](https://packagist.org/packages/undpaul/toggl2redmine) [![Latest Unstable Version](https://poser.pugx.org/undpaul/toggl2redmine/v/unstable.svg)](https://packagist.org/packages/undpaul/toggl2redmine) [![License](https://poser.pugx.org/undpaul/toggl2redmine/license.svg)](https://packagist.org/packages/undpaul/toggl2redmine)
 
 ## Time entry sync
 
@@ -16,18 +16,18 @@ Currently only `time-entry-sync` is available.
 
 The installation is simple by using [composer](https://getcomposer.org/). After [installing composer](https://getcomposer.org/doc/00-intro.md) you can either install the command globally or within a project.
 
-### Global 
+### Global
 
 In the global installation `toggl2redmine` will be available as a command line tool.
 
-* Run `composer global require derhasi/toggl2redmine` to install globally.
+* Run `composer global require undpaul/toggl2redmine` to install globally.
 * Add `export PATH=~/.composer/vendor/bin:$PATH` to your `.bashrc`or `.profile`
 
 After the installation you should be able to run `toggl2redmine time-entry-sync ...` from anywhere.
 
 ### Local
 
-You can run `composer require derhasi/toggl2redmine` in any composer enabled project to add this project as a dependency.
+You can run `composer require undpaul/toggl2redmine` in any composer enabled project to add this project as a dependency.
 
 ## Usage
 
@@ -55,9 +55,9 @@ Options:
  --toDate              To Date to get Time Entries from (default: "now")
  --defaultActivity     Name of the default redmine activity to use for empty time entry tags (default: "")
 ```
- 
+
 ### Configuration
- 
+
 You can place a `toggl2redmine.yml` in your current working directory for local defaults. For global defaults you
 can place it at `~/.toggl2redmine/toggl2redmine.yml`. Attention: local and global defaults will **not** be merged. The
 local default always take precedence over the global defaults, in the case it exists.
@@ -69,5 +69,5 @@ For example, for adding the default config template to the global folder you can
 
 ```sh
 mkdir ~/.toggl2redmine
-curl https://raw.githubusercontent.com/derhasi/toggl2redmine/master/default.toggl2redmine.yml > ~/.toggl2redmine/toggl2redmine.yml
+curl https://github.com/undpaul/toggle2redmine/blob/main/default.toggl2redmine.yml > ~/.toggl2redmine/toggl2redmine.yml
 ```
