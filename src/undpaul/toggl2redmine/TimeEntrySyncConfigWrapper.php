@@ -1,16 +1,15 @@
 <?php
 
-namespace derhasi\toggl2redmine;
+namespace undpaul\toggl2redmine;
 
-use derhasi\toggl2redmine\Config\TimeEntrySyncConfiguration;
-use derhasi\toggl2redmine\Config\YamlConfigLoader;
+use undpaul\toggl2redmine\Config\TimeEntrySyncConfiguration;
+use undpaul\toggl2redmine\Config\YamlConfigLoader;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class ConfigWrapper
- * @package derhasi\toggl2redmine
+ * @package undpaul\toggl2redmine
  */
 class TimeEntrySyncConfigWrapper {
 
@@ -86,4 +85,4 @@ class TimeEntrySyncConfigWrapper {
     );
   }
 
-} 
+}

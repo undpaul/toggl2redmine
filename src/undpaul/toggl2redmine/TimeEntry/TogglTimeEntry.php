@@ -1,6 +1,6 @@
 <?php
 
-namespace derhasi\toggl2redmine\TimeEntry;
+namespace undpaul\toggl2redmine\TimeEntry;
 
 class TogglTimeEntry extends TimeEntryBase {
 

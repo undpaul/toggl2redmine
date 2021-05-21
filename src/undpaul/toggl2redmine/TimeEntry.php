@@ -1,9 +1,9 @@
 <?php
 
-namespace derhasi\toggl2redmine;
+namespace undpaul\toggl2redmine;
 
-use derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry;
-use derhasi\toggl2redmine\TimeEntry\TogglTimeEntry;
+use undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry;
+use undpaul\toggl2redmine\TimeEntry\TogglTimeEntry;
 
 class TimeEntry {
 
@@ -20,7 +20,7 @@ class TimeEntry {
   const MIN_SCORE = 10;
 
   /**
-   * @var \derhasi\toggl2redmine\TimeEntry\TogglTimeEntry
+   * @var \undpaul\toggl2redmine\TimeEntry\TogglTimeEntry
    */
   protected $togglEntry;
 
@@ -30,12 +30,12 @@ class TimeEntry {
   protected $issueID;
 
   /**
-   * @var \derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry
+   * @var \undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry
    */
   protected $redmineEntry;
 
   /**
-   * @var \derhasi\toggl2redmine\RedmineTimeEntryActivity
+   * @var \undpaul\toggl2redmine\RedmineTimeEntryActivity
    */
   protected $activity;
 
@@ -43,7 +43,7 @@ class TimeEntry {
   /**
    * Get the associated toggl entry.
    *
-   * @return \derhasi\toggl2redmine\TimeEntry\TogglTimeEntry
+   * @return \undpaul\toggl2redmine\TimeEntry\TogglTimeEntry
    */
   public function getTogglEntry() {
     return $this->togglEntry;
@@ -52,7 +52,7 @@ class TimeEntry {
   /**
    * Set the toggl entry.
    *
-   * @param \derhasi\toggl2redmine\TimeEntry\TogglTimeEntry $togglEntry
+   * @param \undpaul\toggl2redmine\TimeEntry\TogglTimeEntry $togglEntry
    */
   public function setTogglEntry($togglEntry) {
     $this->togglEntry = $togglEntry;
@@ -70,7 +70,7 @@ class TimeEntry {
   /**
    * Get the redmine entry.
    *
-   * @return \derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry
+   * @return \undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry
    */
   public function getRedmineEntry() {
     return $this->redmineEntry;
@@ -79,7 +79,7 @@ class TimeEntry {
   /**
    * Set the redmine entry.
    *
-   * @param \derhasi\toggl2redmine\TimeEntry\RedmineTimeEntry $redmineEntry
+   * @param \undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry $redmineEntry
    */
   public function setRedmineEntry($redmineEntry) {
     $this->redmineEntry = $redmineEntry;
@@ -184,7 +184,7 @@ class TimeEntry {
   /**
    * Get set activity.
    * 
-   * @return \derhasi\toggl2redmine\RedmineTimeEntryActivity
+   * @return \undpaul\toggl2redmine\RedmineTimeEntryActivity
    */
   public function getActivity() {
     return $this->activity;
@@ -193,7 +193,7 @@ class TimeEntry {
   /**
    * Set activity.
    *
-   * @param \derhasi\toggl2redmine\RedmineTimeEntryActivity $activity
+   * @param \undpaul\toggl2redmine\RedmineTimeEntryActivity $activity
    */
   public function setActivity(RedmineTimeEntryActivity $activity) {
     $this->activity = $activity;

@@ -1,6 +1,6 @@
 <?php
 
-namespace derhasi\toggl2redmine\Config;
+namespace undpaul\toggl2redmine\Config;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;

@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46f4c9a11fd53a037b04c95c6c2e2141",
+    "content-hash": "9c64db477441062a76a5a39827ddc643",
     "packages": [
         {
             "name": "ajt/guzzle-toggl",
-            "version": "v1.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arendjantetteroo/guzzle-toggl.git",
-                "reference": "7e15b1fc45864c046039337a0f7a2da0fef41c5a"
+                "reference": "9cf7f9c94bfb5bb476741e2c02c4f2748257803c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arendjantetteroo/guzzle-toggl/zipball/7e15b1fc45864c046039337a0f7a2da0fef41c5a",
-                "reference": "7e15b1fc45864c046039337a0f7a2da0fef41c5a",
+                "url": "https://api.github.com/repos/arendjantetteroo/guzzle-toggl/zipball/9cf7f9c94bfb5bb476741e2c02c4f2748257803c",
+                "reference": "9cf7f9c94bfb5bb476741e2c02c4f2748257803c",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,11 @@
                 "api",
                 "toggl"
             ],
-            "time": "2017-07-09T17:24:21+00:00"
+            "support": {
+                "issues": "https://github.com/arendjantetteroo/guzzle-toggl/issues",
+                "source": "https://github.com/arendjantetteroo/guzzle-toggl/tree/v1.1.0"
+            },
+            "time": "2021-05-14T11:39:07+00:00"
         },
         {
             "name": "gimler/guzzle-description-loader",
@@ -896,5 +900,6 @@
     "platform": {
         "php": ">=5.4.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

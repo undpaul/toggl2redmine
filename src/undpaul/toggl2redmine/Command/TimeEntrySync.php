@@ -1,12 +1,12 @@
 <?php
 
-namespace derhasi\toggl2redmine\Command;
+namespace undpaul\toggl2redmine\Command;
 
 use AJT\Toggl\TogglClient;
-use derhasi\toggl2redmine\TimeEntry;
-use derhasi\toggl2redmine\TimeEntryCollection;
-use derhasi\toggl2redmine\TimeEntrySyncConfigWrapper;
-use derhasi\toggl2redmine\RedmineTimeEntryActivity;
+use undpaul\toggl2redmine\TimeEntry;
+use undpaul\toggl2redmine\TimeEntryCollection;
+use undpaul\toggl2redmine\TimeEntrySyncConfigWrapper;
+use undpaul\toggl2redmine\RedmineTimeEntryActivity;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
@@ -378,7 +378,7 @@ class TimeEntrySync extends Command {
   /**
    * Process list of time entries.
    *
-   * @param \derhasi\toggl2redmine\TimeEntryCollection $collection
+   * @param \undpaul\toggl2redmine\TimeEntryCollection $collection
    */
   function processTimeEntries(TimeEntryCollection $collection) {
 
@@ -593,7 +593,7 @@ class TimeEntrySync extends Command {
   /**
    * Helper to sync a single time entry to redmine.
    *
-   * @param \derhasi\toggl2redmine\TimeEntry $entry
+   * @param \undpaul\toggl2redmine\TimeEntry $entry
    */
   function syncTimeEntry(TimeEntry $entry) {
     // Write to redmine.
@@ -692,7 +692,7 @@ class TimeEntrySync extends Command {
    *
    * @param array $togglTimeEntry
    *
-   * @return \derhasi\toggl2redmine\RedmineTimeEntryActivity
+   * @return \undpaul\toggl2redmine\RedmineTimeEntryActivity
    */
   protected function getRedmineActivityFromTogglEntry(TimeEntry\TogglTimeEntry $togglTimeEntry) {
     foreach ($togglTimeEntry->getTags() as $tagName) {
@@ -708,7 +708,7 @@ class TimeEntrySync extends Command {
    * Helper to retrieve the redmine activity ID by name.
    *
    * @param string $name
-   * @return \derhasi\toggl2redmine\RedmineTimeEntryActivity
+   * @return \undpaul\toggl2redmine\RedmineTimeEntryActivity
    */
   protected function getRedmineActivityByName($name) {
     static $redmineActivities;
@@ -767,7 +767,7 @@ class TimeEntrySync extends Command {
    * Helper to save a time entry as synched.
    *
    * @param TimeEntry $entry
-   * @param \derhasi\toggl2redmine\RedmineTimeEntryActivity $activity
+   * @param \undpaul\toggl2redmine\RedmineTimeEntryActivity $activity
    */
   protected function saveSynchedTogglTimeEntry(TimeEntry $entry) {
     $raw = $entry->getTogglEntry()->raw;
