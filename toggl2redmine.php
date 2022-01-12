@@ -29,6 +29,6 @@ use \undpaul\toggl2redmine\Command\TimeEntrySync;
 use \Symfony\Component\Console\Application;
 
 
-$application = new Application('toggl2redmine', '1.1.0');
+$application = new Application('toggl2redmine', '1.1.1');
 $application->add(new TimeEntrySync());
 $application->run();
