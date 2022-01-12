@@ -3,8 +3,8 @@
   "description": "Command line tool to sync toggl time entries to redmine",
   "require": {
     "php": ">=7.4.0",
-    "ajt/guzzle-toggl": "~1.1",
     "kbsali/redmine-api": "^2.1",
+    "morningtrain/toggl-api": "^1.2",
     "symfony/config": "~2.7|^3",
     "symfony/console": "~2.7|^3",
     "symfony/yaml": "~2.7|^3"
