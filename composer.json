@@ -3,8 +3,9 @@
   "description": "Command line tool to sync toggl time entries to redmine",
   "require": {
     "php": ">=7.4.0",
+    "ixudra/toggl": "^2.0.0",
     "kbsali/redmine-api": "^2.1",
-    "morningtrain/toggl-api": "^1.2",
+    "nesbot/carbon": "3.4.0 as 1.39.1",
     "symfony/config": "~2.7|^3",
     "symfony/console": "~2.7|^3",
     "symfony/yaml": "~2.7|^3"
@@ -20,15 +21,14 @@
   "license": "GPL-3.0-only",
   "authors": [
     {
-      "name": "Johannes Haseitl",
-      "email": "johannes@undpaul.de"
-    },
-    {
       "name": "Stefan Borchert",
       "email": "stefan@undpaul.de"
     }
   ],
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "kylekatarnls/update-helper": true
+    }
   }
 }

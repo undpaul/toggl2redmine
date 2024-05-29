@@ -3,7 +3,6 @@
 namespace undpaul\toggl2redmine;
 
 use undpaul\toggl2redmine\TimeEntry\RedmineTimeEntry;
-use undpaul\toggl2redmine\TimeEntry\TogglTimeEntry;
 
 class TimeEntry {
 
@@ -39,7 +38,6 @@ class TimeEntry {
    */
   protected $activity;
 
-
   /**
    * Get the associated toggl entry.
    *
@@ -66,7 +64,7 @@ class TimeEntry {
   public function hasTogglEntry() {
     return isset($this->togglEntry);
   }
-  
+
   /**
    * Get the redmine entry.
    *
@@ -140,7 +138,6 @@ class TimeEntry {
     return $this->calculateSyncScore($this->redmineEntry);
   }
 
-
   /**
    * Checks if the sync entries have changes, based on the sync score.
    *
@@ -183,7 +180,7 @@ class TimeEntry {
 
   /**
    * Get set activity.
-   * 
+   *
    * @return \undpaul\toggl2redmine\RedmineTimeEntryActivity
    */
   public function getActivity() {

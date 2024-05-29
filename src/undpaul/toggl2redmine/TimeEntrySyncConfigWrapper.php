@@ -27,6 +27,7 @@ class TimeEntrySyncConfigWrapper {
    *   Root level key for the confiuration subtree.
    */
   public function __construct() {
+
   }
 
   /**

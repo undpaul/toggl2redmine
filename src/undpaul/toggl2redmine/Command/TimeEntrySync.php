@@ -2,7 +2,7 @@
 
 namespace undpaul\toggl2redmine\Command;
 
-use MorningTrain\TogglApi\TogglApi;
+use Carbon\Carbon;
 use Redmine\Client\NativeCurlClient as RedmineClient;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -20,6 +20,7 @@ use undpaul\toggl2redmine\RedmineTimeEntryActivity;
 use undpaul\toggl2redmine\TimeEntry;
 use undpaul\toggl2redmine\TimeEntryCollection;
 use undpaul\toggl2redmine\TimeEntrySyncConfigWrapper;
+use undpaul\toggl2redmine\Toggl\TogglClient;
 
 /**
  * Symfony command implementation for converting redmine wikipages to git.
@@ -29,7 +30,9 @@ class TimeEntrySync extends Command {
   const ISSUE_SYNCED_FLAG = '#synced';
 
   /**
-   * @var \MorningTrain\TogglApi\TogglApi;
+   * The toggl client service.
+   *
+   * @var \undpaul\toggl2redmine\Toggle\TogglClient
    */
   protected $togglClient;
 
@@ -286,20 +289,18 @@ class TimeEntrySync extends Command {
    * {@inheritdoc}
    */
   protected function execute(InputInterface $input, OutputInterface $output) {
-
     // Get our necessary arguments from the input.
     $redmineURL = $input->getArgument('redmineURL');
     $redmineAPIKey = $input->getArgument('redmineAPIKey');
     $togglAPIKey = $input->getArgument('togglAPIKey');
 
-    // Init togglAPI client.
-    $this->togglClient = new TogglApi($togglAPIKey);
-    $this->togglCurrentUser = $this->togglClient->getMe();
     $this->togglWorkspaceID = $this->getWorkspaceID();
-    if (empty($this->togglWorkspaceID)) {
-      $this->output->writeln('<error>No Workspace given</error>');
-      return;
-    }
+    assert(strlen($this->togglWorkspaceID) > 0, '<error>No Workspace given</error>');
+
+    // Init togglAPI client.
+    $this->togglClient = new TogglClient(apiToken: $togglAPIKey, workspaceId: $this->togglWorkspaceID);
+
+    $this->togglCurrentUser = $this->togglClient->getMe();
 
     // Init redmine.
     $this->redmineClient = new RedmineClient($redmineURL, $redmineAPIKey);
@@ -363,7 +364,7 @@ class TimeEntrySync extends Command {
     $workspace_id = $this->input->getOption('workspace');
 
     if (!$workspace_id) {
-      $workspaces = $this->togglClient->getWorkspaces();
+      $workspaces = $this->togglClient->userWorkspaces();
       $options = [];
       foreach ($workspaces as $i => $workspace) {
         $options[$i] = sprintf('%s [ID:%d]', $workspace['name'], $workspace['id']);
@@ -669,7 +670,7 @@ class TimeEntrySync extends Command {
    * @return TimeEntryCollection
    */
   function getTimeEntries(\DateTime $from, \DateTime $to) {
-    $entries = $this->togglClient->getTimeEntriesInRange($from->format('c'), $to->format('c'));
+    $entries = $this->togglClient->timeEntries(new Carbon($from), new Carbon($to));
     $collection = new TimeEntryCollection();
 
     foreach ($entries as $id => $entry) {

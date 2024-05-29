@@ -1,11 +1,11 @@
 <?php
+
 /**
  * @file
  * TimeEntryCollection.php for toggl2redmine
  */
 
 namespace undpaul\toggl2redmine;
-
 
 use undpaul\toggl2redmine\TimeEntry\TogglTimeEntry;
 
@@ -84,7 +84,7 @@ class TimeEntryCollection implements \Countable {
     }
 
     // Sort the combinatations by best score.
-    usort($combinations, function($a, $b) {
+    usort($combinations, function ($a, $b) {
       return $b['score'] - $a['score'];
     });
 
@@ -149,6 +149,5 @@ class TimeEntryCollection implements \Countable {
     $this->sync[$toggleID] = $redmineID;
     $this->entries[$toggleID]->setRedmineEntry($this->redmineEntries[$redmineID]);
   }
-
 
 }
