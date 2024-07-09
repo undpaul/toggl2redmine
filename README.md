@@ -16,6 +16,16 @@ Currently only `time-entry-sync` is available.
 
 The installation is simple by using [composer](https://getcomposer.org/). After [installing composer](https://getcomposer.org/doc/00-intro.md) you can either install the command globally or within a project.
 
+### Docker
+
+To run the script using Docker you can build the image:
+
+`docker build -t local/toggl2redmine .`
+
+Then you can run it like this:
+
+`docker run -v /path/to/toggl2redmine.yml:/app/vendor/undpaul/toggl2redmine/toggl2redmine.yml local/toggl2redmine time-entry-sync`
+
 ### Global
 
 In the global installation `toggl2redmine` will be available as a command line tool.
