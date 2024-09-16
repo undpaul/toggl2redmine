@@ -4,6 +4,7 @@ namespace undpaul\toggl2redmine\Command;
 
 use Carbon\Carbon;
 use Redmine\Client\NativeCurlClient as RedmineClient;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Helper\Table;
@@ -23,8 +24,12 @@ use undpaul\toggl2redmine\TimeEntrySyncConfigWrapper;
 use undpaul\toggl2redmine\Toggl\TogglClient;
 
 /**
- * Symfony command implementation for converting redmine wikipages to git.
+ * Synchronize time entries between toggl and redmine.
  */
+#[AsCommand(
+    name: 'time-entry-sync',
+    description: 'Synchronize time entry records between toggl and redmine.',
+  )]
 class TimeEntrySync extends Command {
 
   const ISSUE_SYNCED_FLAG = '#synced';
@@ -81,11 +86,9 @@ class TimeEntrySync extends Command {
   /**
    * {@inheritdoc}
    */
-  protected function configure()
-  {
+  #[\Override]
+  protected function configure() {
     $this
-      ->setName('time-entry-sync')
-      ->setDescription('Converts wiki pages of a redmine project to git')
       ->addArgument(
         'redmineURL',
         InputArgument::REQUIRED,
@@ -135,6 +138,7 @@ class TimeEntrySync extends Command {
   /**
    * {@inheritdoc}
    */
+  #[\Override]
   protected function initialize(InputInterface $input, OutputInterface $output) {
     // Prepare helpers.
     $this->question = $this->getHelper('question');
@@ -145,8 +149,8 @@ class TimeEntrySync extends Command {
   /**
    * {@inheritdoc}
    */
+  #[\Override]
   protected function interact(InputInterface $input, OutputInterface $output) {
-
     $config = new TimeEntrySyncConfigWrapper();
 
     // redmineURL
@@ -160,7 +164,7 @@ class TimeEntrySync extends Command {
       else {
         $question = new Question('Enter your redmine URL: ');
 
-        $answer = $this->question->ask($input,$output, $question);
+        $answer = $this->question->ask($input, $output, $question);
       }
 
       if ($answer) {
@@ -204,7 +208,7 @@ class TimeEntrySync extends Command {
       // Or ask for it.
       else {
         $question = new Question('Enter your toggl API Token: ');
-        $answer = $this->question->ask($input,$output, $question);
+        $answer = $this->question->ask($input, $output, $question);
       }
 
       if ($answer) {
@@ -226,7 +230,7 @@ class TimeEntrySync extends Command {
       // Or ask for it.
       else {
         $question = new Question('Enter "from date" [-1 day]: ', '-1 day');
-        $answer = $this->question->ask($input,$output, $question);
+        $answer = $this->question->ask($input, $output, $question);
       }
 
       if ($answer) {
@@ -248,7 +252,7 @@ class TimeEntrySync extends Command {
       // Or ask for it.
       else {
         $question = new Question('Enter "to date" [now]: ', 'now');
-        $answer = $this->question->ask($input,$output, $question);
+        $answer = $this->question->ask($input, $output, $question);
       }
 
       if ($answer) {
@@ -270,7 +274,7 @@ class TimeEntrySync extends Command {
       // Or ask for it.
       else {
         $question = new Question('Name of default activity" []: ', '');
-        $answer = $this->question->ask($input,$output, $question);
+        $answer = $this->question->ask($input, $output, $question);
       }
 
       if ($answer) {
@@ -288,7 +292,8 @@ class TimeEntrySync extends Command {
   /**
    * {@inheritdoc}
    */
-  protected function execute(InputInterface $input, OutputInterface $output) {
+  #[\Override]
+  protected function execute(InputInterface $input, OutputInterface $output): int {
     // Get our necessary arguments from the input.
     $redmineURL = $input->getArgument('redmineURL');
     $redmineAPIKey = $input->getArgument('redmineAPIKey');
@@ -353,6 +358,8 @@ class TimeEntrySync extends Command {
     }
 
     $output->writeln('Finished.');
+
+    return Command::SUCCESS;
   }
 
   /**
@@ -499,10 +506,11 @@ class TimeEntrySync extends Command {
       return;
     }
 
+    $confirmation = new ConfirmationQuestion(
+      question: sprintf('<question> %d entries not synced. Process now? [y] </question>', count($process)),
+    );
     // Confirm before we really process.
-    if (!$this->question->ask($this->input, $this->output,
-      new ConfirmationQuestion(sprintf('<question> %d entries not synced. Process now? [y] </question>', count($process)), false))
-    ) {
+    if (!$this->question->ask($this->input, $this->output, $confirmation)) {
       $this->output->writeln('<error>Sync aborted.</error>');
       return;
     }
@@ -557,7 +565,7 @@ class TimeEntrySync extends Command {
    */
   function getRedmineIssues($ids) {
     // Cast to int.
-    array_walk($ids, function(&$id) {
+    array_walk($ids, function (&$id) {
       $id = (int) $id;
     });
 
@@ -570,7 +578,6 @@ class TimeEntrySync extends Command {
     }
     return $response['issues'];
   }
-
 
   /**
    * Retieve issue information from redmine.
@@ -659,7 +666,7 @@ class TimeEntrySync extends Command {
    * @see \Redmine\Api\TimeEntry::create()
    */
   protected function escapeAmpersand($str) {
-    return preg_replace('/&(?![[:alnum:]]+;)/','&amp;', $str);
+    return preg_replace('/&(?![[:alnum:]]+;)/', '&amp;', $str);
   }
 
   /**
@@ -670,7 +677,7 @@ class TimeEntrySync extends Command {
    * @return TimeEntryCollection
    */
   function getTimeEntries(\DateTime $from, \DateTime $to) {
-    $entries = $this->togglClient->timeEntries(new Carbon($from), new Carbon($to));
+    $entries = $this->togglClient->timeEntries(new Carbon($from), new Carbon($to)) ?? [];
     $collection = new TimeEntryCollection();
 
     foreach ($entries as $id => $entry) {

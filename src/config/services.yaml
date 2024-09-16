@@ -1,0 +1,12 @@
+parameters:
+
+services:
+  # Default configuration for services in *this* file.
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  # TimeEntrySync
+  undpaul\toggl2redmine\Command\TimeEntrySync:
+    tags: ['controller.service_arguments', 'console.command']

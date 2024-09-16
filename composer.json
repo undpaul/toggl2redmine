@@ -5,10 +5,11 @@
     "php": ">=7.4.0",
     "ixudra/toggl": "^2.0.0",
     "kbsali/redmine-api": "^2.1",
-    "nesbot/carbon": "3.4.0 as 1.39.1",
-    "symfony/config": "~2.7|^3",
-    "symfony/console": "~2.7|^3",
-    "symfony/yaml": "~2.7|^3"
+    "nesbot/carbon": "^3.8.0",
+    "symfony/config": "^7.1.0",
+    "symfony/console": "^7.1.0",
+    "symfony/framework-bundle": "^7.1.0",
+    "symfony/yaml": "^7.1.0"
   },
   "bin": [
     "toggl2redmine"

@@ -58,7 +58,8 @@ class TimeEntryCollection implements \Countable {
   /**
    * {@inheritdoc}
    */
-  public function count() {
+  #[\Override]
+  public function count(): int {
     return count($this->entries);
   }
 
