@@ -15,7 +15,7 @@ if (version_compare('8.3.0', PHP_VERSION, '>')) {
   fwrite(
     STDERR,
     sprintf(
-      'This version of SchemaValidator requires PHP >= 8.2.' . PHP_EOL .
+      'This version of Toggl2Redmine requires PHP >= 8.2.' . PHP_EOL .
       'You are using PHP %s (%s).' . PHP_EOL,
       PHP_VERSION,
       PHP_BINARY
@@ -64,7 +64,10 @@ require TOGGL2REDMINE_COMPOSER_AUTOLOAD;
 $kernel = new Kernel($_ENV['APP_ENV'] ?? 'dev', (bool) ($_ENV['APP_DEBUG'] ?? false));
 $kernel->boot();
 
-$application = new Application();
+$application = new Application(
+  name: 'Toggl2Redmine',
+  version: '2.1.1',
+);
 
 // Create a new ContainerBuilder instance
 $container_builder = new ContainerBuilder();
