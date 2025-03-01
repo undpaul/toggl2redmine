@@ -44,7 +44,11 @@ class TogglTimeEntry extends TimeEntryBase {
    * {@inheritdoc}
    */
   public function getHours() {
-    return number_format($this->raw['duration'] / 60 / 60, 2);
+    $duration = $this->raw['duration'] ?? 0;
+    $minutes = round($duration / 60);
+    $hours = $minutes / 60;
+
+    return number_format($hours, 2);
   }
 
   /**
