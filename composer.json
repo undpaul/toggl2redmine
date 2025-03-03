@@ -2,13 +2,15 @@
   "name": "undpaul/toggl2redmine",
   "description": "Command line tool to sync toggl time entries to redmine",
   "require": {
-    "php": ">=7.4.0",
+    "php": ">=8.2.0",
     "ixudra/toggl": "^2.0.0",
     "kbsali/redmine-api": "^2.1",
     "nesbot/carbon": "^3.8.0",
     "symfony/config": "^7.1.0",
     "symfony/console": "^7.1.0",
-    "symfony/framework-bundle": "^7.1.0",
+    "symfony/framework-bundle": "^7.2",
+    "symfony/http-kernel": "^7.1.0",
+    "symfony/runtime": "^7.2",
     "symfony/yaml": "^7.1.0"
   },
   "bin": [
@@ -29,7 +31,8 @@
   "config": {
     "sort-packages": true,
     "allow-plugins": {
-      "kylekatarnls/update-helper": true
+      "kylekatarnls/update-helper": true,
+      "symfony/runtime": true
     }
   }
 }

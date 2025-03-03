@@ -66,7 +66,7 @@ $kernel->boot();
 
 $application = new Application(
   name: 'Toggl2Redmine',
-  version: '2.1.1',
+  version: '2.1.3',
 );
 
 // Create a new ContainerBuilder instance
