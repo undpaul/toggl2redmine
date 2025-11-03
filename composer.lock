@@ -499,16 +499,16 @@
         },
         {
             "name": "ixudra/toggl",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ixudra/toggl.git",
-                "reference": "ff49b2447fce8fd4d29fe11cf64df6873d20b09c"
+                "reference": "74e6d079ebd2f9c93c80197c2e6d4c84084d09b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ixudra/toggl/zipball/ff49b2447fce8fd4d29fe11cf64df6873d20b09c",
-                "reference": "ff49b2447fce8fd4d29fe11cf64df6873d20b09c",
+                "url": "https://api.github.com/repos/ixudra/toggl/zipball/74e6d079ebd2f9c93c80197c2e6d4c84084d09b9",
+                "reference": "74e6d079ebd2f9c93c80197c2e6d4c84084d09b9",
                 "shasum": ""
             },
             "require": {
@@ -555,9 +555,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ixudra/toggl/issues",
-                "source": "https://github.com/ixudra/toggl/tree/2.1.1"
+                "source": "https://github.com/ixudra/toggl/tree/2.1.2"
             },
-            "time": "2024-07-21T09:58:31+00:00"
+            "time": "2025-03-05T20:34:00+00:00"
         },
         {
             "name": "kbsali/redmine-api",

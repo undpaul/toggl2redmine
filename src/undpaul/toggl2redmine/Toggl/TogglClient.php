@@ -4,8 +4,9 @@ namespace undpaul\toggl2redmine\Toggl;
 
 use Carbon\Carbon;
 use Ixudra\Toggl\TogglService;
+use undpaul\toggl2redmine\Exception\ConnectionException;
 
-class TogglClient extends TogglService implements \undpaul\toggl2redmine\Toggl\TogglClientInterface {
+class TogglClient extends TogglService implements TogglClientInterface {
 
   /**
    * {@inheritdoc}
@@ -18,6 +19,10 @@ class TogglClient extends TogglService implements \undpaul\toggl2redmine\Toggl\T
     }
 
     $data = $this->sendGetMessage($this->baseUrl . $this->apiVersionUrl . '/me', $request_data);
+
+    if (is_null($data)) {
+      throw new ConnectionException('Failed connecting to toggl. Maybe you have hit your hourly limit for API calls. Please try again later.');
+    }
 
     return $data;
   }
