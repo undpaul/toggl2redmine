@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cad7c7c81a6c88848d74e64373fbcb4",
+    "content-hash": "9dc30c047036b39d14fed232396a9c0f",
     "packages": [
         {
             "name": "carbonphp/carbon-doctrine-types",
@@ -499,22 +499,22 @@
         },
         {
             "name": "ixudra/toggl",
-            "version": "2.1.2",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ixudra/toggl.git",
-                "reference": "74e6d079ebd2f9c93c80197c2e6d4c84084d09b9"
+                "reference": "8b96f7e13d12e9fb7c3e5366069ebc3e2a990304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ixudra/toggl/zipball/74e6d079ebd2f9c93c80197c2e6d4c84084d09b9",
-                "reference": "74e6d079ebd2f9c93c80197c2e6d4c84084d09b9",
+                "url": "https://api.github.com/repos/ixudra/toggl/zipball/8b96f7e13d12e9fb7c3e5366069ebc3e2a990304",
+                "reference": "8b96f7e13d12e9fb7c3e5366069ebc3e2a990304",
                 "shasum": ""
             },
             "require": {
                 "ixudra/curl": "~6.0",
                 "nesbot/carbon": ">=1.19",
-                "php": ">=5.6.0"
+                "php": "^7.1||^8.0"
             },
             "suggest": {
                 "illuminate/support": "Support for laravel using the TogglServiceProvider"
@@ -555,9 +555,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ixudra/toggl/issues",
-                "source": "https://github.com/ixudra/toggl/tree/2.1.2"
+                "source": "https://github.com/ixudra/toggl/tree/3.0.0"
             },
-            "time": "2025-03-05T20:34:00+00:00"
+            "time": "2025-11-03T22:52:10+00:00"
         },
         {
             "name": "kbsali/redmine-api",

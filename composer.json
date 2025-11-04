@@ -3,7 +3,7 @@
   "description": "Command line tool to sync toggl time entries to redmine",
   "require": {
     "php": ">=8.2.0",
-    "ixudra/toggl": "^2.0.0",
+    "ixudra/toggl": "^3.0.0",
     "kbsali/redmine-api": "^2.1",
     "nesbot/carbon": "^3.8.0",
     "symfony/config": "^7.1.0",
