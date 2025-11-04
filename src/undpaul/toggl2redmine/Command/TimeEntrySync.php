@@ -303,17 +303,24 @@ class TimeEntrySync extends Command {
     assert(strlen($this->togglWorkspaceID) > 0, '<error>No Workspace given</error>');
 
     // Init togglAPI client.
-    $this->togglClient = new TogglClient(apiToken: $togglAPIKey, workspaceId: $this->togglWorkspaceID);
+    $this->togglClient = new TogglClient(
+      apiToken: $togglAPIKey,
+      workspaceId: $this->togglWorkspaceID,
+    );
 
+    // Load information about the current user.
     $this->togglCurrentUser = $this->togglClient->getMe();
 
     // Init redmine.
-    $this->redmineClient = new RedmineClient($redmineURL, $redmineAPIKey);
+    $this->redmineClient = new RedmineClient(
+      url: $redmineURL,
+      apikeyOrUsername: $redmineAPIKey,
+    );
 
     $from = $input->getOption('fromDate');
     $to = $input->getOption('toDate');
 
-    // Before we handle dates, we need to make sure, a default timezone is set.
+    // Before we handle dates we need to make sure a default timezone is set.
     $this->fixTimezone();
 
     $global_from = new \DateTime($from);
