@@ -337,7 +337,6 @@ class TimeEntrySync extends Command {
 
     // Run each day.
     while ($day_from < $global_to) {
-
       // Prepare the day to object. We go to the end of the from day, but not
       // any further than the global_to.
       $day_to = clone $day_from;

@@ -2,8 +2,8 @@
   "name": "undpaul/toggl2redmine",
   "description": "Command line tool to sync toggl time entries to redmine",
   "require": {
-    "php": ">=8.2.0",
-    "ixudra/curl": "^6.23.0",
+    "php": "^8.4.0",
+    "ixudra/curl": "dev-master as 6.0.x-dev",
     "ixudra/toggl": "^3.0.0",
     "kbsali/redmine-api": "^2.1",
     "nesbot/carbon": "^3.8.0",
