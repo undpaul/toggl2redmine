@@ -618,16 +618,16 @@
         },
         {
             "name": "kbsali/redmine-api",
-            "version": "v2.9.0",
+            "version": "v2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kbsali/php-redmine-api.git",
-                "reference": "94585074f19c4d57ab0251f284c665c9b5c0cd4f"
+                "reference": "7d12a025fbde81627998514ab88809004a2cc4a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kbsali/php-redmine-api/zipball/94585074f19c4d57ab0251f284c665c9b5c0cd4f",
-                "reference": "94585074f19c4d57ab0251f284c665c9b5c0cd4f",
+                "url": "https://api.github.com/repos/kbsali/php-redmine-api/zipball/7d12a025fbde81627998514ab88809004a2cc4a1",
+                "reference": "7d12a025fbde81627998514ab88809004a2cc4a1",
                 "shasum": ""
             },
             "require": {
@@ -640,12 +640,12 @@
             },
             "require-dev": {
                 "art4/rector-bc-library": "^1.0",
-                "behat/behat": "^3.14",
-                "friendsofphp/php-cs-fixer": "^3.68",
-                "guzzlehttp/psr7": "^2",
-                "php-mock/php-mock-phpunit": "^2.13",
+                "behat/behat": "^3.15",
+                "friendsofphp/php-cs-fixer": "^3.94",
+                "guzzlehttp/psr7": "^2.8",
+                "php-mock/php-mock-phpunit": "^2.15",
                 "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^9.5 || ^10.5 || ^11.2 || ^12.0.9",
+                "phpunit/phpunit": "^9.6 || ^10.5 || ^11.5 || ^12.5 || ^13.0",
                 "rector/rector": "^2.3"
             },
             "type": "library",
@@ -678,9 +678,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kbsali/php-redmine-api/issues",
-                "source": "https://github.com/kbsali/php-redmine-api/tree/v2.9.0"
+                "source": "https://github.com/kbsali/php-redmine-api/tree/v2.9.1"
             },
-            "time": "2026-03-08T05:55:14+00:00"
+            "time": "2026-04-03T07:36:19+00:00"
         },
         {
             "name": "nesbot/carbon",
